@@ -29,13 +29,11 @@ int main()
 		//cout << entry.path() << endl;
 		fichiers.push_back(entry.path().string());
 	}
-	cout << fichiers.size() << endl;
 	omp_set_num_threads(fichiers.size());
 
 #pragma omp parallel
 	{
 		int thread_id = omp_get_thread_num();
-		cout << "cimer chef ... " << thread_id << endl;
 		string filename;
 		filename = fichiers[thread_id];
 		//Achat : id,nb achat,Max € a payer
